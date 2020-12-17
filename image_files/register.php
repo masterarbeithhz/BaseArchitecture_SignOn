@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Registration system PHP and MySQL</title>
+	<title>1Registration system PHP and MySQL</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="header">
-	<h2>Register1</h2>
+	<h2>Register</h2>
 </div>
 <form method="post" action="register.php">
 <?php echo display_error(); ?>
