@@ -11,7 +11,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git url:'https://github.com/masterarbeithhz/Landingpage.git', branch:'main'
+        git url:'https://github.com/masterarbeithhz/BaseArchitecture_SignOn.git', branch:'main'
       }
     }
     
