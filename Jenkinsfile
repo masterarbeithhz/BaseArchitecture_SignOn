@@ -2,7 +2,7 @@ pipeline {
 
   environment {
     registryCredential = 'dockerhub'
-    imagetag = "landingpage${env.BUILD_ID}"
+    imagetag = "signon${env.BUILD_ID}"
   }
   
   agent any
