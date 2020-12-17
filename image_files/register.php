@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="header">
-	<h2>Register</h2>
+	<h2>Register1</h2>
 </div>
 <form method="post" action="register.php">
 <?php echo display_error(); ?>
