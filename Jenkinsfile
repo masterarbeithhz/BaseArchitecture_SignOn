@@ -5,24 +5,34 @@ pipeline {
     imagefolder = "masterarbeithhz/microservices:"
     imagetag = "signon${env.BUILD_ID}"
     giturl = 'https://github.com/masterarbeithhz/BaseArchitecture_SignOn.git'
-    giturl2 = 'https://github.com/masterarbeithhz/BaseArchitecture_SharedFiles.git'
   }
   
   agent any
 
   stages {
 
-    stage('Checkout Source1') {
-      steps {        
-        git url:"${giturl}", branch:'main'
-      }
+     stage('CheckoutModule1') {
+        steps {
+            sh 'mkdir -p Module1'
+            dir("Module1")
+            {
+                git branch: "main",
+                url: 'https://github.com/masterarbeithhz/BaseArchitecture_SignOn.git'
+            }
+        }
     }
 
-    stage('Checkout Source2') {
-      steps {
-        git url:"${giturl2}", branch:'main'
-      }
+    stage('CheckoutModule2') {
+        steps {
+            sh 'mkdir -p Module2'
+            dir("Module2")
+            {
+                git branch: "main",
+                url: 'https://github.com/masterarbeithhz/BaseArchitecture_SharedFiles.git'
+            }
+        }
     }
+
     
       stage("Build image") {
             steps {
