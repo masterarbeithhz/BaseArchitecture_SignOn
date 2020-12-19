@@ -14,8 +14,8 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git url:"${giturl}", branch:'main'
         git url:"${giturl2}", branch:'main'
+        git url:"${giturl}", branch:'main'
       }
     }
     
