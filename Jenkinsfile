@@ -5,6 +5,7 @@ pipeline {
     imagefolder = "masterarbeithhz/microservices:"
     imagetag = "signon${env.BUILD_ID}"
     giturl = 'https://github.com/masterarbeithhz/BaseArchitecture_SignOn.git'
+    giturl2 = 'https://github.com/masterarbeithhz/BaseArchitecture_SharedFiles.git'
   }
   
   agent any
@@ -14,6 +15,7 @@ pipeline {
     stage('Checkout Source') {
       steps {
         git url:"${giturl}", branch:'main'
+        git url:"${giturl2}", branch:'main'
       }
     }
     
