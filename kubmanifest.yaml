@@ -45,4 +45,4 @@ spec:
     spec:
       containers:
       - name: signon
-        image: masterarbeithhz/microservices:JSVAR_DOCKERIMAGE
+        image: JSVAR_DOCKERIMAGE

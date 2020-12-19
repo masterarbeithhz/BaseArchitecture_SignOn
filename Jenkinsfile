@@ -2,7 +2,9 @@ pipeline {
 
   environment {
     registryCredential = 'dockerhub'
+    imagefolder = "masterarbeithhz/microservices:"
     imagetag = "signon${env.BUILD_ID}"
+    giturl = 'https://github.com/masterarbeithhz/BaseArchitecture_SignOn.git'
   }
   
   agent any
@@ -11,14 +13,14 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git url:'https://github.com/masterarbeithhz/BaseArchitecture_SignOn.git', branch:'main'
+        git url:"${giturl}", branch:'main'
       }
     }
     
       stage("Build image") {
             steps {
                 script {
-                    myapp = docker.build("masterarbeithhz/microservices:${imagetag}")
+                    myapp = docker.build("${imagefolder}${imagetag}")
                 }
             }
         }
@@ -37,7 +39,7 @@ pipeline {
         steps {
           script {
             def data = readFile file: "kubmanifest.yaml"
-            data = data.replaceAll("JSVAR_DOCKERIMAGE", "${imagetag}")
+            data = data.replaceAll("JSVAR_DOCKERIMAGE", "${imagefolder}${imagetag}")
             echo data
             writeFile file: "kubmanifest.yaml", text: data
           }
