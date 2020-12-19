@@ -27,7 +27,6 @@ EXPOSE 80
 
 # Copy this repo into place.
 COPY image_files /var/www/html/ 
-COPY ../../BaseArchitecture_SharedFiles/BaseArchitecture_SharedFiles/image_files /var/www/html/
 
 # Update the default apache site with the config we created.
 #ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
