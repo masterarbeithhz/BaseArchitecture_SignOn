@@ -12,10 +12,15 @@ pipeline {
 
   stages {
 
-    stage('Checkout Source') {
+    stage('Checkout Source1') {
+      steps {        
+        git url:"${giturl}", branch:'main'
+      }
+    }
+
+    stage('Checkout Source2') {
       steps {
         git url:"${giturl2}", branch:'main'
-        git url:"${giturl}", branch:'main'
       }
     }
     
