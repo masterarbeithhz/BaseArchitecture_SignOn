@@ -7,7 +7,7 @@ pipeline {
     giturl = 'https://github.com/masterarbeithhz/BaseArchitecture_SignOn.git'
     PROJECT_ID = 'crafty-sound-297315'
     CLUSTER_NAME = 'cluster-2'
-    LOCATION = 'us-central1-c'
+    LOCATION = 'europe-west3-a'
     CREDENTIALS_ID = 'crafty-sound-297315'
   }
   
