@@ -17,6 +17,11 @@ spec:
       containers:
       - name: signon
         image: JSVAR_DOCKERIMAGE
+        resources:
+          requests:
+            cpu: "100m"
+          limits:
+            cpu: "200m"
 ---        
 apiVersion: v1
 kind: Service
