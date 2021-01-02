@@ -67,7 +67,7 @@ function register(){
 
 			$_SESSION['user'] = getUserById($logged_in_user_id); // put logged in user in session
 			$_SESSION['success']  = "You are now logged in";
-			header('location: http://192.168.99.100/LandingPage/LandingPage.php');				
+			header('location: http://hhz.regel-it.de/LandingPage/LandingPage.php');				
 		}
 	}
 }

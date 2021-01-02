@@ -31,7 +31,7 @@
 		<button type="submit" class="btn" name="register_btn">Register</button>
 	</div>
 	<p>
-		Already a member? <a href="http://192.168.99.100/login/login.php">Sign in</a>
+		Already a member? <a href="http://hhz.regel-it.de/login/login.php">Sign in</a>
 	</p>
 </form>
 </body>
