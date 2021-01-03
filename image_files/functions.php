@@ -9,7 +9,7 @@ $session = new Session();	//Start a new PHP MySQL session
 
 
 // connect to database
-$db = mysqli_connect(DATABASENAME,DATABASEUSER,DATABASEPSWD,'authentication');
+$db = mysqli_connect(DATABASENAME,DATABASEUSER,DATABASEPSWD,DATABASEDB);
 
 // variable declaration
 $username = "";
@@ -57,7 +57,7 @@ function register(){
 					  VALUES('$username', '$email', '$user_type', '$password')";
 			mysqli_query($db, $query);
 			$_SESSION['success']  = "New user successfully created!!";
-			header('location: home.php'); //todo
+			header('location: ' .URL.'/admin/admin/home.php');
 		}else{
 			$query = "INSERT INTO users (username, email, user_type, password) 
 					  VALUES('$username', '$email', 'user', '$password')";
@@ -114,7 +114,7 @@ function isLoggedIn()
 if (isset($_GET['logout'])) {
 	session_destroy();
 	unset($_SESSION['user']);
-	header("location: login.php");
+	header('location: ' .URL.'/login/index.php'); 
 }
 
 // call the login() function if register_btn is clicked
@@ -152,12 +152,12 @@ function login(){
 
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
-				header('location: admin/home.php');		  
+				header('location: ' .URL.'/admin/admin/home.php'); 	  
 			}else{
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
 
-				header('location: index.php');
+				header('location: ' .URL.'/homepage/homepage.php'); 
 			}
 		}else {
 			array_push($errors, "Wrong username/password combination");
