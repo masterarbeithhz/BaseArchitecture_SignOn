@@ -37,6 +37,8 @@ spec:
           value: JSVAR_BA_DBPSWD
         - name: BA_DOMAIN
           value: JSVAR_BA_DOMAIN
+        - name: BA_NAMESPACE
+          value: JSVAR_BA_NAMESPACE
 ---        
 apiVersion: v1
 kind: Service

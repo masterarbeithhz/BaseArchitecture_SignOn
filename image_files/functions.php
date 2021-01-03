@@ -4,11 +4,12 @@
 
 include("database.class.php");	//Include MySQL database class
 include("mysql.sessions.php");	//Include PHP MySQL sessions
+include("envVariables.php");
 $session = new Session();	//Start a new PHP MySQL session
 
 
 // connect to database
-$db = mysqli_connect('mysqlauth-service', 'root', 'Philipp1', 'authentication');
+$db = mysqli_connect(DATABASENAME,DATABASEUSER,DATABASEPSWD,'authentication');
 
 // variable declaration
 $username = "";
@@ -56,7 +57,7 @@ function register(){
 					  VALUES('$username', '$email', '$user_type', '$password')";
 			mysqli_query($db, $query);
 			$_SESSION['success']  = "New user successfully created!!";
-			header('location: home.php');
+			header('location: home.php'); //todo
 		}else{
 			$query = "INSERT INTO users (username, email, user_type, password) 
 					  VALUES('$username', '$email', 'user', '$password')";
@@ -67,7 +68,7 @@ function register(){
 
 			$_SESSION['user'] = getUserById($logged_in_user_id); // put logged in user in session
 			$_SESSION['success']  = "You are now logged in";
-			header('location: http://hhz.regel-it.de/LandingPage/LandingPage.php');				
+			header('location: ' .URL.'/LandingPage/LandingPage.php');				
 		}
 	}
 }

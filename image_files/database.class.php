@@ -1,15 +1,9 @@
 <?php
-
-	/*
-	Revised code by Dominick Lee
-	Original code derived from "Run your own PDO PHP class" by Philip Brown
-	Last Modified 2/27/2017
-	*/
-
 	// Define database configuration
-	define("DB_HOST", "mysqlauth-service");
-	define("DB_USER", "root");
-	define("DB_PASS", "Philipp1");
+	include("envVariables.php");
+	define("DB_HOST", DATABASENAME);
+	define("DB_USER", DATABASEUSER);
+	define("DB_PASS", DATABASEPSWD);
 	define("DB_NAME", "authentication");
 
 	class Database{
