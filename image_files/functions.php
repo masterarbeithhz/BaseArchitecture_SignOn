@@ -114,7 +114,7 @@ function isLoggedIn()
 if (isset($_GET['logout'])) {
 	session_destroy();
 	unset($_SESSION['user']);
-	header('location: ' .URL.'/login/login.php'); 
+	header('location: ' .URL.'/login/index.php'); 
 }
 
 // call the login() function if register_btn is clicked
@@ -157,7 +157,7 @@ function login(){
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
 
-				header('location: ' .URL.'/homepage/homepage.php'); yyy
+				header('location: ' .URL.'/homepage/homepage.php'); 
 			}
 		}else {
 			array_push($errors, "Wrong username/password combination");
