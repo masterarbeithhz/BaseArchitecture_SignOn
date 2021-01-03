@@ -34,7 +34,8 @@ include("envVariables.php");
 		<button type="submit" class="btn" name="register_btn">Register</button>
 	</div>
 	<p>
-		Already a member? <a href="http://hhz.regel-it.de/login/login.php">Sign in</a>
+		Already a member? <a href= "<?php URL.'/login/index.php' ?>">Sign in</a>
+		
 	</p>
 </form>
 </body>

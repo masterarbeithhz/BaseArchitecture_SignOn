@@ -4,7 +4,7 @@
 	define("DB_HOST", DATABASENAME);
 	define("DB_USER", DATABASEUSER);
 	define("DB_PASS", DATABASEPSWD);
-	define("DB_NAME", "authentication");
+	define("DB_NAME", DATABASEDB);
 
 	class Database{
 		private $host      = DB_HOST;
