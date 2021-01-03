@@ -1,7 +1,14 @@
+#Definition Namespace für alle Ressourcen
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: JSVAR_NAMESPACE
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: signon
+  namespace: JSVAR_NAMESPACE
   labels:
     app: signon
 spec:
@@ -17,16 +24,25 @@ spec:
       containers:
       - name: signon
         image: JSVAR_DOCKERIMAGE
-        resources:
-          requests:
-            cpu: "100m"
-          limits:
-            cpu: "200m"
+        env:
+        - name: BA_CUSTOMER
+          value: JSVAR_BA_CUSTOMER
+        - name: BA_DBNAME
+          value: JSVAR_BA_DBNAME
+        - name: BA_DBUSER
+          value: JSVAR_BA_DBUSER
+        - name: BA_DBDB
+          value: JSVAR_BA_DBDB
+        - name: BA_DBPSWD
+          value: JSVAR_BA_DBPSWD
+        - name: BA_DOMAIN
+          value: JSVAR_BA_DOMAIN
 ---        
 apiVersion: v1
 kind: Service
 metadata:
   name: signon-service
+  namespace: JSVAR_NAMESPACE
 spec:
   type: NodePort
   selector:
@@ -41,13 +57,14 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: signon-ingress
+  namespace: JSVAR_NAMESPACE
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
   - http:
       paths:
-        - path: /signon/(.*)
+        - path: /JSVAR_NAMESPACE/signon/(.*)
           backend:
             serviceName: signon-service
             servicePort: 80        
