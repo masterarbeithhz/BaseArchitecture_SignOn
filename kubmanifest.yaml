@@ -38,7 +38,7 @@ spec:
         - name: BA_DOMAIN
           value: JSVAR_BA_DOMAIN
         - name: BA_NAMESPACE
-          value: JSVAR_BA_NAMESPACE
+          value: JSVAR_NAMESPACE
 ---        
 apiVersion: v1
 kind: Service
