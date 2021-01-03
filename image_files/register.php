@@ -1,4 +1,8 @@
-<?php include('functions.php') ?>
+<?php 
+include('functions.php'); 
+include("envVariables.php");
+echo 'location: ' .URL. '/LandingPage/LandingPage.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
